@@ -26,12 +26,6 @@ static const char *fonts[]          = { "Jetbrains Mono:style:medium:size=10", "
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
 
-static const char *statuscolors[][3] = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { norm_fg, norm_bg, sel_border },
-	[SchemeSel]  = { sel_fg,  sel_bg,  sel_border  },
-};
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -58,10 +52,9 @@ static const Rule rules[] = {
  */
 static const BarRule barrules[] = {
 	/* monitor  bar    alignment         widthfunc              drawfunc              clickfunc           name */
-//	{ -1,       0,     BAR_ALIGN_LEFT,   width_pwrl_tags,       draw_pwrl_tags,       click_pwrl_tags,    "powerline_tags" },
 	{ -1,       0,     BAR_ALIGN_LEFT,   width_tags,            draw_tags,            click_tags,         "tags" },
 	{ -1,       0,     BAR_ALIGN_LEFT,   width_ltsymbol,        draw_ltsymbol,        click_ltsymbol,     "layout" },
-	{  0,       0,     BAR_ALIGN_RIGHT,  width_pwrl_status,     draw_pwrl_status,     click_pwrl_status,  "powerline_status" },
+	{ 'A',      0,     BAR_ALIGN_RIGHT,  width_status,          draw_status,          click_status,       "status" },
 	{ -1,       0,     BAR_ALIGN_NONE,   width_wintitle,        draw_wintitle,        click_wintitle,     "wintitle" },
 };
 

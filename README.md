@@ -1,0 +1,2 @@
+# kreadwm - my dwm setup
+
